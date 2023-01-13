@@ -1,9 +1,9 @@
 package bank1.Bank;
 
 public class Bank {
-    String Nama;
-    int Saldo = 10_000;
-    String NoRek;
+    protected String Nama;
+    private int Saldo = 10_000;
+    protected String NoRek;
 
     Bank(String nama,String Norek){
         this.NoRek = Norek;
@@ -14,9 +14,8 @@ public class Bank {
         System.out.println("Your Number : " + NoRek);
         System.out.println("Your Money : " + Saldo);
     }
-    void Transfer(Bank tujuan, int jumlah){
-        this.Saldo -= jumlah;
-        tujuan.Saldo += jumlah;
+    protected void checkSaldo(){
+        System.out.println("your Money : " + Saldo);
     }
     void Setor(int jumlahSetor){
         System.out.println("setor sejumlah = " + jumlahSetor);
@@ -24,19 +23,19 @@ public class Bank {
         Saldo += jumlahSetor;
         System.out.println(Saldo);
     }
-    void Tarik(int jumlahTarik){
+    void Tarik(int jumlahTarik) {
         System.out.println("tarik sejumlah " + jumlahTarik);
-        System.out.println("Saldo setelah berkurang = " + (Saldo-=jumlahTarik));
+        System.out.println("Saldo setelah berkurang = " + (Saldo -= jumlahTarik));
+    }
+    protected void bayar(int money){
+        System.out.println("Pembayaran sejumlah " + money);
+        this.Saldo -= money;
+    }
+    void Transfer(Bank tujuan, int jumlah){
+        this.Saldo -= jumlah;
+        tujuan.Saldo += jumlah;
+    }
 
-//        int hasil = jumlah - Saldo;
-//        System.out.println(hasil);
-    }
-    double saldo(){
-        return Saldo ;
-    }
-    void  Inforekening(){
-        System.out.println("Masukkan Tujuan = " );
-    }
 
 
 
