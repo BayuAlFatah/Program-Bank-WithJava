@@ -5,11 +5,15 @@ public class Bank {
     int Saldo = 10_000;
     String NoRek;
 
-//    public bank1.Bank(String Norek,String nama,int saldo){
-//        this.NoRek = Norek;
-//        this.Nama = nama;
-//        this.Saldo = saldo;
-//    }
+    Bank(String nama,String Norek){
+        this.NoRek = Norek;
+        this.Nama = nama;
+    }
+    protected void getInfo(){
+        System.out.println("Your Name : " + Nama);
+        System.out.println("Your Number : " + NoRek);
+        System.out.println("Your Money : " + Saldo);
+    }
     void Transfer(Bank tujuan, int jumlah){
         this.Saldo -= jumlah;
         tujuan.Saldo += jumlah;
