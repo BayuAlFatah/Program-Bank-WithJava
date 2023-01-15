@@ -3,9 +3,9 @@ package bank1.Bank;
 public class Bank {
     protected String Nama;
     private int Saldo = 10_000;
-    protected String NoRek;
+    protected int NoRek;
 
-    Bank(String nama,String Norek){
+    Bank(String nama,int Norek){
         this.NoRek = Norek;
         this.Nama = nama;
     }
