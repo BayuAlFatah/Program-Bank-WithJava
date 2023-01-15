@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
-        var isbenar = true;
         int input;
         Scanner inputUser = new Scanner(System.in);
         System.out.println("Masukkan UserName anda : ");
@@ -37,6 +35,49 @@ public class Main {
             System.out.println("Ketikkan angka untuk Menu Transaksi : ");
             //untuk memasukkan input angka untuk memilih menu transaksi
             input = inputUser.nextInt();
+            //percabangan pertama untuk memilih user input
+            if (input == 1){
+                System.out.println("Masukkan Nominal Anda : ");
+                input = inputUser.nextInt();
+                b1.Setor(input);
+            } else if (input == 2) {
+                //untuk menampilkan Pilihan Transaki
+                System.out.println("Silahkan Pilih Transaksi");
+                System.out.println("1. Untuk Info Akun anda");
+                System.out.println("2. untuk Setor ");
+                System.out.println("3. Untuk CheckSaldo");
+                System.out.println("4. untuk Bayar ");
+                System.out.println("5. Untuk Transfer");
+                System.out.println("6. Untuk Tarik Tunai");
+                System.out.println("Silahkan Pilih angka : ");
+                //untuk memilih menu transaksi
+                var milihinput = inputUser.nextInt();
+                if (milihinput == 1) {
+                    b1.getInfo();
+                } else if (milihinput == 2) {
+                    System.out.println("masukkan Nominal anda : ");
+                    input= inputUser.nextInt();
+                    b1.Setor(input);
+                } else if (milihinput == 3) {
+                    b1.checkSaldo();
+                } else if (milihinput == 4) {
+                    System.out.println("masukkan Nominal anda : ");
+                    var setor = inputUser.nextInt();
+                    b1.bayar(setor);
+                } else if (milihinput == 5) {
+                    System.out.println("masukkan Nominal anda : ");
+                    var setor = inputUser.nextInt();
+                    b1.Transfer(b2, setor);
+                } else if (milihinput == 6) {
+                    System.out.println("masukkan Nominal anda : ");
+                    input = inputUser.nextInt();
+                    b1.Tarik(input);
+                } else
+                    System.out.println("Silahkan pilih angka dengan Benar ");
+            } else {
+                System.out.println("Angka Tidak Ditemukan ");
+                System.out.println("silahkan masukkan angka dengan benar");
+            }
 
 
         }while (input != 3);
